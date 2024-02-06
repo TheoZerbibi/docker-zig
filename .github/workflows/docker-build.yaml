@@ -1,0 +1,16 @@
+name: Docker Build CI
+
+on:
+  pull_request:
+  merge_group:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - name: Build the Docker image
+        run: >-
+          docker build .
+          --file Dockerfile
+          --tag theozerbibi/docker-zig:"$(date +%s)"
