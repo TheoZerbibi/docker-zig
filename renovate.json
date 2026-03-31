@@ -1,22 +1,35 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "enabled": true,
-  "baseBranches": ["main"],
+  "baseBranchPatterns": [
+    "main"
+  ],
   "extends": [
     "config:best-practices",
     "default:semanticCommits"
   ],
   "separateMinorPatch": true,
-  "enabledManagers": ["dockerfile", "github-actions", "custom.regex"],
+  "enabledManagers": [
+    "dockerfile",
+    "github-actions",
+    "custom.regex"
+  ],
   "packageRules": [
     {
       "description": "Automatically merge minor and patch level updates",
-      "matchUpdateTypes": ["patch", "pin", "pinDigest", "digest"],
+      "matchUpdateTypes": [
+        "patch",
+        "pin",
+        "pinDigest",
+        "digest"
+      ],
       "automerge": true
     },
     {
       "description": "Automatically merge minor and patch level updates",
-      "matchUpdateTypes": ["minor"],
+      "matchUpdateTypes": [
+        "minor"
+      ],
       "matchCurrentVersion": "!/^0/",
       "automerge": true
     }
@@ -25,8 +38,12 @@
     {
       "description": "Update zig version",
       "customType": "regex",
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": ["ENV ZIGVER=(?<currentValue>.*?)\\n"],
+      "managerFilePatterns": [
+        "/^Dockerfile$/"
+      ],
+      "matchStrings": [
+        "ENV ZIGVER=(?<currentValue>.*?)\\n"
+      ],
       "depNameTemplate": "ziglang/zig",
       "datasourceTemplate": "github-releases"
     }
