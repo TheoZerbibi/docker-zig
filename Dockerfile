@@ -1,4 +1,4 @@
-FROM debian:12.13@sha256:bc960ef50e6feed90686c593361df158517556ed1d2d98e5d1df3724024e0f49
+FROM debian:12.13@sha256:1d6cd964917a13b547d1ea392dff9a000c3f36070686ebc5c8755d53fb374435
 
 RUN apt update && apt install -y curl tar xz-utils
 
