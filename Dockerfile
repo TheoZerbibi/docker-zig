@@ -2,7 +2,7 @@ FROM debian:12.13@sha256:1d6cd964917a13b547d1ea392dff9a000c3f36070686ebc5c8755d5
 
 RUN apt update && apt install -y curl tar xz-utils
 
-ENV ZIGVER=0.13.0
+ENV ZIGVER=0.15.1
 
 RUN curl https://ziglang.org/download/$ZIGVER/zig-linux-$(uname -m)-$ZIGVER.tar.xz -O && \
     tar xf zig-linux-$(uname -m)-$ZIGVER.tar.xz && \
